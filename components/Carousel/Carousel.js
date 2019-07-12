@@ -30,6 +30,7 @@ class Carousel {
 
     // 3. Create a current index
     this.index = 0;
+    this.images[0].classList.add('img-show');
 
     // 4. Those buttons are gonna need some click handlers.
     this.leftBtn.addEventListener('click', () => this.moveLeft());
@@ -39,20 +40,20 @@ class Carousel {
 
   moveLeft() {
     this.images.forEach(img => img.classList.remove('img-show'));
-    this.index--;
     if (this.index < 0) {
       this.index = this.images.length - 1;
     }
     this.images[this.index].classList.add('img-show');
+    this.index--;
   }
 
   moveRight() {
     this.images.forEach(img => img.classList.remove("img-show"));
-    this.index++;
     if (this.index > this.images.length - 1) {
       this.index = 0;
     }
     this.images[this.index].classList.add("img-show");
+    this.index++;
   }
 
   animate() {
